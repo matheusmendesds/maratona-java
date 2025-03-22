@@ -1,6 +1,6 @@
 package academy.devdojo.maratonajava.exercicios;
 
-import academy.devdojo.maratonajava.exercicios.calculadora.Calculadora;
+
 
 public class exercicio12 {
 //12 - Faça um algoritmo que leia o valor de um produto e determine o valor que deve ser pago, conforme a escolha da forma de pagamento
@@ -9,13 +9,12 @@ public class exercicio12 {
 // 3 - Parcelado no cartão em duas vezes, preço normal do produto sem juros
 // 4 - Parcelado no cartão em três vezes ou mais, preço normal do produto mais juros de 10%
 public static void main(String[] args) {
-    Calculadora calculadora = new Calculadora();
+
     double valorProduto = 29.90;
     int aVista = 1;
     int cartao = 2;
     int parcela = 3;
     int formaPgm = cartao;
-    calculadora.valorFinal(formaPgm,parcela,valorProduto);
 
 }
 }
