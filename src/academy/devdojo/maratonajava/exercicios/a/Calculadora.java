@@ -37,4 +37,28 @@ public class Calculadora {
             }
         }
     }
+
+    public void calcularSalario(int aulasDadas , int horaAulas ){
+        double descInss = 0.1;
+        double salarioBruto = (aulasDadas* horaAulas);
+        double salarioLiquido = salarioBruto - (salarioBruto*descInss);
+        System.out.println("--------------");
+        System.out.println("Valor Hora aulas:R$"+horaAulas);
+        System.out.println("Quantidades de Horas leccionadas:R$"+aulasDadas);
+        System.out.println("Salario Bruto:R$"+salarioBruto);
+        System.out.println("Salario Liquido:R$"+salarioLiquido);
+    }
+
+    public void dadosViagem(int distancia, int velocidade){
+        int horas;
+        int distanciaMetros= distancia*1000;
+        int litros = distanciaMetros / 12;
+        //distância = tempo x velocidade
+        int tempo = distanciaMetros/velocidade;
+        System.out.println("Em uma viagem com "+ distancia + "km de distancia");
+        System.out.println("Litros utilizados para viagem: "+ litros + "l");
+        System.out.println("Tempo da viagem aproximadamente: "+ tempo + " horas");
+
+
+    }
 }
