@@ -44,16 +44,20 @@ public class Jogador {
        System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
        System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
        System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
-        System.out.println("Comentarios adicionais:");
-       if (gols > jogos){
-           System.out.println("O jogador tem mais gols do que jogos");
-       }
-       System.out.println("----------------------------------");
-
-
 
     }
+    public void analiseJogador(){
+        calcularStats();
+        System.out.println("---------------------");
+        System.out.println("Comentarios adicionais:");
+        if (gols > jogos){
+            System.out.println("O jogador tem mais gols do que jogos");
+        } else {
+            System.out.println("sem comentarios adicionais");
+        }
+        System.out.println("----------------------------------");
 
+    }
     public String getNome() {
         return nome;
     }
