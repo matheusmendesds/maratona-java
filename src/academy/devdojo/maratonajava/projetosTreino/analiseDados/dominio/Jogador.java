@@ -39,12 +39,16 @@ public class Jogador {
        int gols = this.gols;
        System.out.println("------Estatisticas por jogo------");
        System.out.println("Nome:" + this.nome);
-        System.out.println("Jogos:" + jogos);
-        System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
-        System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
-        System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
-        System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
-        System.out.println("----------------------------------");
+       System.out.println("Jogos:" + jogos);
+       System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
+       System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
+       System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
+       System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
+        System.out.println("Comentarios adicionais:");
+       if (gols > jogos){
+           System.out.println("O jogador tem mais gols do que jogos");
+       }
+       System.out.println("----------------------------------");
 
 
 
