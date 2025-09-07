@@ -34,13 +34,16 @@ public class Jogador {
     public void calcularStats(){
        int desarmes = this.desarmes;
        int jogos = this.jogos;
-       int assistencias = this.jogos;
+       int assistencias = this.assistencias;
        int passes = this.passes;
        int gols = this.gols;
        System.out.println("------Estatisticas por jogo------");
        System.out.println("Nome:" + this.nome);
        System.out.println("Jogos:" + jogos);
+       //double golsPorJogo =(double)  (gols / jogos);
+       //golsPorJogo = Math.round(golsPorJogo * 100.0) / 100.0;
        System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
+        //System.out.println("teste:" + golsPorJogo);
        System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
        System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
        System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
