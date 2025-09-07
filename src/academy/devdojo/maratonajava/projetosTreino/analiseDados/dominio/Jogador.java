@@ -47,6 +47,7 @@ public class Jogador {
 
     }
     public void analiseJogador(){
+        //Melhorar esse metodo aqui para ficar com mais dados
         calcularStats();
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
