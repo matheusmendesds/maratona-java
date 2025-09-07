@@ -5,7 +5,8 @@ import academy.devdojo.maratonajava.projetosTreino.cadastro.dominio.Veiculo;
 public class VeiculoTest01 {
     public static void main(String[] args) {
         Veiculo veiculo01 = new Veiculo("Carro","Onix","Chevrolet",2020);
-        Veiculo
+        Veiculo veiculo02 = new Veiculo("Moto","Titan","Honda",2014);
         veiculo01.imprime();
+        veiculo02.imprime();
     }
 }
