@@ -11,6 +11,8 @@ public class jogadorTest01 {
         // jogador01.imprime();
         jogador01.analiseJogador();
         jogador02.analiseJogador();
+        jogador01.imprime();
+        jogador02.imprime();
 
     }
 }
