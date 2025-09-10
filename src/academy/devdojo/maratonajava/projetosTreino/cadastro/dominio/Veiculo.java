@@ -5,12 +5,14 @@ public class Veiculo {
     public String modelo;
     public String marca;
     public int ano;
+    public int km;
 
-    public Veiculo(String tipo, String modelo, String marca, int ano) {
+    public Veiculo(String tipo, String modelo, String marca, int ano,int km) {
         this.tipo = tipo;
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
+        this.km = km;
     }
     public void addCarro(){
         System.out.println("Veiculo:"+modelo + " adicionado ao banco de Dados");
@@ -20,6 +22,7 @@ public class Veiculo {
         System.out.println("Modelo:" + modelo);
         System.out.println("Marca:" + marca);
         System.out.println("Ano:" + ano);
+        System.out.println();
         System.out.println("------------");
 
     }
@@ -53,5 +56,13 @@ public class Veiculo {
 
     public void setAno(int ano) {
         this.ano = ano;
+    }
+
+    public int getKm() {
+        return km;
+    }
+
+    public void setKm(int km) {
+        this.km = km;
     }
 }
