@@ -22,7 +22,7 @@ public class Veiculo {
         System.out.println("Modelo:" + modelo);
         System.out.println("Marca:" + marca);
         System.out.println("Ano:" + ano);
-        System.out.println();
+        System.out.println("Kilometragem:" + km + "km");
         System.out.println("------------");
 
     }
