@@ -12,6 +12,9 @@ public class Veiculo {
         this.marca = marca;
         this.ano = ano;
     }
+    public void addCarro(){
+        System.out.println("Veiculo:"+modelo + " adicionado ao banco de Dados");
+    }
     public void imprime(){
         System.out.println("Tipo:" + tipo);
         System.out.println("Modelo:" + modelo);
