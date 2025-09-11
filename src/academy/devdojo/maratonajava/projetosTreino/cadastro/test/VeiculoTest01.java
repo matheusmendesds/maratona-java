@@ -12,6 +12,6 @@ public class VeiculoTest01 {
         veiculo02.imprime();
         veiculo02.addCarro();
         veiculo03.imprime();
-        veiculo03.addCarro();
+        veiculo03.removerCarro();
     }
 }

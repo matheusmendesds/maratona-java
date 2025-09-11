@@ -17,6 +17,9 @@ public class Veiculo {
     public void addCarro(){
         System.out.println("Veiculo:"+modelo + " adicionado ao banco de Dados");
     }
+    public void removerCarro() {
+        System.out.println("Veiculo:"+modelo + " removido do banco de Dados");
+    }
     public void imprime(){
         System.out.println("Tipo:" + tipo);
         System.out.println("Modelo:" + modelo);
