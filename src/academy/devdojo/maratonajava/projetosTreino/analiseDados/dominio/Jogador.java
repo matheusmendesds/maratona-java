@@ -11,6 +11,10 @@ public class Jogador {
     public int assistencias;
     public int passes;
 
+    private double golsPorJogo;
+    private double passesPorJogo;
+    private double assistsPorJogo;
+
     public Jogador(String nome, int idade, int desarmes, int gols, int jogos, int assistencias, int passes) {
         this.nome = nome;
         this.idade = idade;
@@ -19,6 +23,12 @@ public class Jogador {
         this.jogos = jogos;
         this.assistencias = assistencias;
         this.passes = passes;
+    }
+
+    public void varData() {
+        golsPorJogo = Math.round(((double) gols / jogos) * 100.0) / 100.0;
+        passesPorJogo = Math.round(((double) passes / jogos) * 100.0) / 100.0;
+        assistsPorJogo = Math.round(((double) assistencias / jogos) * 100.0) / 100.0;
     }
 
     public void imprime(){
@@ -32,19 +42,7 @@ public class Jogador {
     }
 
     public void calcularStats(){
-       int desarmes = this.desarmes;
-       int jogos = this.jogos;
-       int assistencias = this.assistencias;
-       int passes = this.passes;
-       int gols = this.gols;
-       double golsPorJogo = (double) gols / jogos;
-       golsPorJogo = Math.round(golsPorJogo * 100.0) / 100.0;
-
-       double passesPorJogo = (double) gols / jogos;
-        passesPorJogo = Math.round(passesPorJogo * 100.0) / 100.0;
-
-        double assistsPorJogo = (double) assistencias/jogos;
-        assistsPorJogo = Math.round(assistsPorJogo * 100.0) / 100.0;
+        varData();
         System.out.println("------Estatisticas por jogo------");
         System.out.println("Nome:" + this.nome);
         System.out.println("Jogos:" + jogos);
@@ -66,13 +64,14 @@ public class Jogador {
         calcularStats();
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
-        if (golsPo > jogos) {
+        varData();
+        if (golsPorJogo > 0.7) {
             System.out.println("O jogador tem mais gols do que jogos");
         } else {
             System.out.println("sem comentarios adicionais");
         }
 
-        if (gols > jogos && assistencias > jogos) {
+        if (golsPorJogo >= 1  && assistsPorJogo >= 0.5) {
             System.out.println("Jogador adicionado a lista de prioridade.");
 
         }
