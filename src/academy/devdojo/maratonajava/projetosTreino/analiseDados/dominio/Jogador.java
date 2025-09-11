@@ -40,13 +40,20 @@ public class Jogador {
        System.out.println("------Estatisticas por jogo------");
        System.out.println("Nome:" + this.nome);
        System.out.println("Jogos:" + jogos);
-       //double golsPorJogo =(double)  (gols / jogos);
-       //golsPorJogo = Math.round(golsPorJogo * 100.0) / 100.0;
-       System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
-        //System.out.println("teste:" + golsPorJogo);
-       System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
-       System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
-       System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
+       double golsPorJogo = (double) gols / jogos;
+       golsPorJogo = Math.round(golsPorJogo * 100.0) / 100.0;
+
+       double passesPorJogo = (double) gols / jogos;
+        passesPorJogo = Math.round(passesPorJogo * 100.0) / 100.0;
+
+        double assistsPorJogo = (double) assistencias/jogos;
+        assistsPorJogo = Math.round(assistsPorJogo * 100.0) / 100.0;
+
+
+       //System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
+    //       System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
+//       System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
+//       System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
 
     }
     public void analiseJogador(){
@@ -54,10 +61,15 @@ public class Jogador {
         calcularStats();
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
-        if (gols > jogos){
+        if (gols > jogos) {
             System.out.println("O jogador tem mais gols do que jogos");
         } else {
             System.out.println("sem comentarios adicionais");
+        }
+
+        if (gols > jogos && assistencias > jogos) {
+            System.out.println("Jogador adicionado a lista de prioridade.");
+
         }
         System.out.println("----------------------------------");
 
