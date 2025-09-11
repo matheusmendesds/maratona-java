@@ -37,9 +37,6 @@ public class Jogador {
        int assistencias = this.assistencias;
        int passes = this.passes;
        int gols = this.gols;
-       System.out.println("------Estatisticas por jogo------");
-       System.out.println("Nome:" + this.nome);
-       System.out.println("Jogos:" + jogos);
        double golsPorJogo = (double) gols / jogos;
        golsPorJogo = Math.round(golsPorJogo * 100.0) / 100.0;
 
@@ -48,6 +45,14 @@ public class Jogador {
 
         double assistsPorJogo = (double) assistencias/jogos;
         assistsPorJogo = Math.round(assistsPorJogo * 100.0) / 100.0;
+        System.out.println("------Estatisticas por jogo------");
+        System.out.println("Nome:" + this.nome);
+        System.out.println("Jogos:" + jogos);
+        System.out.println("Gols por Jogo:" + golsPorJogo);
+        System.out.println("Passes por Jogo:" + passesPorJogo);
+        System.out.println("Assitências por Jogo:" + assistsPorJogo);
+
+
 
 
        //System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
@@ -61,7 +66,7 @@ public class Jogador {
         calcularStats();
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
-        if (gols > jogos) {
+        if (golsPo > jogos) {
             System.out.println("O jogador tem mais gols do que jogos");
         } else {
             System.out.println("sem comentarios adicionais");
