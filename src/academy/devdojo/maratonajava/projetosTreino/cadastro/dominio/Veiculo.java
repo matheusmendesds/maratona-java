@@ -23,7 +23,11 @@ public class Veiculo {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insira o valor de desconto(se nao houver digite 0):");
         int desconto = Integer.parseInt(scanner.nextLine());
-        
+        System.out.println("Insira as parcelas:");
+        int parcelas = Integer.parseInt(scanner.nextLine());
+        if (parcelas > 20 ){
+
+        }
     }
     public void addCarro(){
         System.out.println("Veiculo:"+modelo + " adicionado ao banco de Dados");
