@@ -1,5 +1,7 @@
 package academy.devdojo.maratonajava.projetosTreino.cadastro.dominio;
 
+import java.util.Scanner;
+
 public class Veiculo {
     private String tipo;
     private String modelo;
@@ -17,6 +19,10 @@ public class Veiculo {
         this.valor = valor;
     }
     public void vender(){
+        System.out.println("-Venda do carro:" + modelo + ano);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Insira o valor de desconto(se nao houver digite 0):");
+        int desconto = Integer.parseInt(scanner.nextLine());
         
     }
     public void addCarro(){
