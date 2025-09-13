@@ -1,18 +1,23 @@
 package academy.devdojo.maratonajava.projetosTreino.cadastro.dominio;
 
 public class Veiculo {
-    public String tipo;
-    public String modelo;
-    public String marca;
-    public int ano;
-    public int km;
+    private String tipo;
+    private String modelo;
+    private String marca;
+    private int ano;
+    private int km;
+    private int valor;
 
-    public Veiculo(String tipo, String modelo, String marca, int ano,int km) {
+    public Veiculo(String tipo, String modelo, String marca, int ano,int km,int valor) {
         this.tipo = tipo;
         this.modelo = modelo;
         this.marca = marca;
         this.ano = ano;
         this.km = km;
+        this.valor = valor;
+    }
+    public void vender(){
+        
     }
     public void addCarro(){
         System.out.println("Veiculo:"+modelo + " adicionado ao banco de Dados");
@@ -29,6 +34,15 @@ public class Veiculo {
         System.out.println("------------");
 
     }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
     public String getTipo() {
         return tipo;
     }
