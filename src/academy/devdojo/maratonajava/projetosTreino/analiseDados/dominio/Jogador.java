@@ -15,6 +15,7 @@ public class Jogador {
     private double passesPorJogo;
     private double assistsPorJogo;
     private double desarmePorJogo;
+    private double partGolsPorJogo;
 
     public Jogador(String nome, int idade, int desarmes, int gols, int jogos, int assistencias, int passes) {
         this.nome = nome;
@@ -31,6 +32,7 @@ public class Jogador {
         passesPorJogo = Math.round(((double) passes / jogos) * 100.0) / 100.0;
         assistsPorJogo = Math.round(((double) assistencias / jogos) * 100.0) / 100.0;
         desarmePorJogo = Math.round(((double) desarmes/jogos) * 100.0)/100.0;
+        partGolsPorJogo =  Math.round(((double)(gols + assistencias)/jogos));
     }
 
     public void imprime(){
@@ -52,6 +54,7 @@ public class Jogador {
         System.out.println("Passes por Jogo:" + passesPorJogo);
         System.out.println("Assitências por Jogo:" + assistsPorJogo);
         System.out.println("Desarmes por Jogo:" + desarmePorJogo);
+        System.out.println("Participações em gols por jogo:" + partGolsPorJogo);
 
     }
     public void analiseJogador(){
@@ -66,7 +69,7 @@ public class Jogador {
             System.out.println("sem comentarios adicionais");
         }
 
-        if (golsPorJogo >= 1  && assistsPorJogo >= 0.5) {
+        if (golsPorJogo >= 1  && assistsPorJogo >= 0.5 || partGolsPorJogo >= 1 )  {
             System.out.println("Jogador adicionado a lista de prioridade.");
 
         }
