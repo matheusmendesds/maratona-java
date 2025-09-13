@@ -35,6 +35,7 @@ public class Jogador {
         partGolsPorJogo =  Math.round(((double)(gols + assistencias)/jogos));
     }
     private void cabecalho(){
+        System.out.println("-----Dados do Jogador-----");
         System.out.println("Nome:" + this.nome);
         System.out.println("Idade:" + this.idade);
         System.out.println("Jogos:" + this.jogos);
