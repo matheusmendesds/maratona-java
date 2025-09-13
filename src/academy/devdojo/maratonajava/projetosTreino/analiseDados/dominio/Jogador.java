@@ -41,15 +41,17 @@ public class Jogador {
     }
     public void imprime(){
         cabecalho();
-        System.out.println("Gols:" + this.gols);
-        System.out.println("Assistencias:" + this.assistencias);
-        System.out.println("Desarmes:" + this.desarmes);
-        System.out.println("Passes:" + this.passes);
+        analiseJogador();
     }
 
     private void calcularStats(){
         varData();
         System.out.println("------Estatisticas Totais por jogo------");
+        System.out.println("Gols:" + this.gols);
+        System.out.println("Assistencias:" + this.assistencias);
+        System.out.println("Desarmes:" + this.desarmes);
+        System.out.println("Passes:" + this.passes);
+        System.out.println("-----Analise das Estatisticas-----");
         System.out.println("Gols por Jogo:" + golsPorJogo);
         System.out.println("Passes por Jogo:" + passesPorJogo);
         System.out.println("Assitências por Jogo:" + assistsPorJogo);
@@ -63,7 +65,6 @@ public class Jogador {
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
         varData();
-
         if (golsPorJogo >= 1  && assistsPorJogo >= 0.5 || partGolsPorJogo >= 1 )  {
             System.out.println("Jogador adicionado a lista de prioridade.");
 
