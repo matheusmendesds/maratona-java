@@ -34,22 +34,22 @@ public class Jogador {
         desarmePorJogo = Math.round(((double) desarmes/jogos) * 100.0)/100.0;
         partGolsPorJogo =  Math.round(((double)(gols + assistencias)/jogos));
     }
-
-    public void imprime(){
+    private void cabecalho(){
         System.out.println("Nome:" + this.nome);
         System.out.println("Idade:" + this.idade);
         System.out.println("Jogos:" + this.jogos);
+    }
+    public void imprime(){
+        cabecalho();
         System.out.println("Gols:" + this.gols);
         System.out.println("Assistencias:" + this.assistencias);
         System.out.println("Desarmes:" + this.desarmes);
         System.out.println("Passes:" + this.passes);
     }
 
-    public void calcularStats(){
+    private void calcularStats(){
         varData();
-        System.out.println("------Estatisticas por jogo------");
-        System.out.println("Nome:" + this.nome);
-        System.out.println("Jogos:" + jogos);
+        System.out.println("------Estatisticas Totais por jogo------");
         System.out.println("Gols por Jogo:" + golsPorJogo);
         System.out.println("Passes por Jogo:" + passesPorJogo);
         System.out.println("Assitências por Jogo:" + assistsPorJogo);
@@ -57,7 +57,7 @@ public class Jogador {
         System.out.println("Participações em gols por jogo:" + partGolsPorJogo);
 
     }
-    public void analiseJogador(){
+    private void analiseJogador(){
         //Melhorar esse metodo aqui para ficar com mais dados
         calcularStats();
         System.out.println("---------------------");
