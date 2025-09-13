@@ -14,6 +14,7 @@ public class Jogador {
     private double golsPorJogo;
     private double passesPorJogo;
     private double assistsPorJogo;
+    private double desarmePorJogo;
 
     public Jogador(String nome, int idade, int desarmes, int gols, int jogos, int assistencias, int passes) {
         this.nome = nome;
@@ -29,6 +30,7 @@ public class Jogador {
         golsPorJogo = Math.round(((double) gols / jogos) * 100.0) / 100.0;
         passesPorJogo = Math.round(((double) passes / jogos) * 100.0) / 100.0;
         assistsPorJogo = Math.round(((double) assistencias / jogos) * 100.0) / 100.0;
+        desarmePorJogo = Math.round(((double) desarmes/jogos) * 100.0)/100.0;
     }
 
     public void imprime(){
@@ -49,14 +51,7 @@ public class Jogador {
         System.out.println("Gols por Jogo:" + golsPorJogo);
         System.out.println("Passes por Jogo:" + passesPorJogo);
         System.out.println("Assitências por Jogo:" + assistsPorJogo);
-
-
-
-
-       //System.out.println("Gols por Jogos: " + String.format("%.2f", (double) gols / jogos));
-    //       System.out.println("Assistencias por Jogos: " + String.format("%.2f", (double) assistencias/jogos));
-//       System.out.println("Passes por Jogos: " + String.format("%.2f", (double) passes / jogos));
-//       System.out.println("Desarmes por Jogos: " + String.format("%.2f", (double) desarmes / jogos));
+        System.out.println("Desarmes por Jogo:" + desarmePorJogo);
 
     }
     public void analiseJogador(){
