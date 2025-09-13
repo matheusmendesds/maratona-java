@@ -63,15 +63,12 @@ public class Jogador {
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
         varData();
-        if (golsPorJogo > 0.7) {
-            System.out.println("O jogador tem mais gols do que jogos");
-        } else {
-            System.out.println("sem comentarios adicionais");
-        }
 
         if (golsPorJogo >= 1  && assistsPorJogo >= 0.5 || partGolsPorJogo >= 1 )  {
             System.out.println("Jogador adicionado a lista de prioridade.");
 
+        } else {
+            System.out.println("Sem comentários adicionais");
         }
         System.out.println("----------------------------------");
 
