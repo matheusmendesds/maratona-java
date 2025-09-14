@@ -26,16 +26,20 @@ public class Veiculo {
         System.out.println("Insira as parcelas:");
         int parcelas = Integer.parseInt(scanner.nextLine());
         if (parcelas < 30 ) {
-            double valorFinal = valor * 1.10;
+            double valorFinal = (valor * 1.10) - desconto;
             double valorParcela = valorFinal/parcelas;
+            System.out.println("Preço original:R$"+valor);
+            System.out.println("Desconto:R$"+desconto);
             System.out.println("Serão aplicados juros de 1,10 em cada parcela");
-            System.out.println("O valor final do carro é:R$"+valorFinal);
+            System.out.println("O valor final do é:R$"+valorFinal);
             System.out.println("O valor será dividido em: "+parcelas + " de R$" +valorParcela);
         } else {
-            double valorFinal = valor * 1.20;
+            double valorFinal = (valor * 1.20) - desconto;
             double valorParcela = valorFinal/parcelas;
+            System.out.println("Preço original:R$"+valor);
+            System.out.println("Desconto:R$"+desconto);
             System.out.println("Serão aplicados juros de 1,20 em cada parcela");
-            System.out.println("O valor final do carro é:R$"+valorFinal);
+            System.out.println("O valor final é:R$"+valorFinal);
             System.out.println("O valor será dividido em: "+parcelas + " de R$" +valorParcela);
         }
     }
