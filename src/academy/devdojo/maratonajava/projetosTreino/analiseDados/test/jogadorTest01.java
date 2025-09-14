@@ -15,6 +15,7 @@ public class jogadorTest01 {
         //jogador02.imprime();
         jogador01.imprime();
         jogador02.imprime();
+        jogador03.imprime();
 
     }
 }
