@@ -25,7 +25,9 @@ public class Veiculo {
         int desconto = Integer.parseInt(scanner.nextLine());
         System.out.println("Insira as parcelas:");
         int parcelas = Integer.parseInt(scanner.nextLine());
-        if (parcelas > 20 ){
+        if (parcelas <= 20 ) {
+            double valorFinal = valor * 1.10;
+            System.out.println(valorFinal);
 
         }
     }
