@@ -27,6 +27,11 @@ public class Jogador {
         this.passes = passes;
     }
 
+    public void imprime(){
+        cabecalho();
+        analiseJogador();
+    }
+
     public void varData() {
         golsPorJogo = Math.round(((double) gols / jogos) * 100.0) / 100.0;
         passesPorJogo = Math.round(((double) passes / jogos) * 100.0) / 100.0;
@@ -40,10 +45,7 @@ public class Jogador {
         System.out.println("Idade:" + this.idade);
         System.out.println("Jogos:" + this.jogos);
     }
-    public void imprime(){
-        cabecalho();
-        analiseJogador();
-    }
+
 
     private void calcularStats(){
         varData();
@@ -60,8 +62,7 @@ public class Jogador {
         System.out.println("Participações em gols por jogo:" + partGolsPorJogo);
 
     }
-    private void analiseJogador(){
-        //Melhorar esse metodo aqui para ficar com mais dados
+    private void analiseJogador() {
         calcularStats();
         System.out.println("---------------------");
         System.out.println("Comentarios adicionais:");
