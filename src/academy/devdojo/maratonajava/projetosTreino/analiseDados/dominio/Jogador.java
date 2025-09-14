@@ -26,6 +26,12 @@ public class Jogador {
         this.assistencias = assistencias;
         this.passes = passes;
     }
+    public void comparar(Jogador j1,Jogador j2) {
+        //mudar essa função para conseguir comparar stats de jogadores
+        System.out.println("Nome:" + j1.nome);
+        System.out.println("Nome:" + j2.nome);
+
+    }
 
     public void imprime(){
         cabecalho();

@@ -16,6 +16,8 @@ public class jogadorTest01 {
         jogador01.imprime();
         jogador02.imprime();
         jogador03.imprime();
+        // n funciona do jeito q quero ainda
+        jogador03.comparar(jogador01,jogador02);
 
     }
 }
