@@ -18,17 +18,25 @@ public class Veiculo {
         this.km = km;
         this.valor = valor;
     }
-    public void vender(){
+    public void vender() {
         System.out.println("-Venda do carro:" + modelo + ano);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insira o valor de desconto(se nao houver digite 0):");
         int desconto = Integer.parseInt(scanner.nextLine());
         System.out.println("Insira as parcelas:");
         int parcelas = Integer.parseInt(scanner.nextLine());
-        if (parcelas <= 20 ) {
+        if (parcelas < 30 ) {
             double valorFinal = valor * 1.10;
-            System.out.println(valorFinal);
-
+            double valorParcela = valorFinal/parcelas;
+            System.out.println("Serão aplicados juros de 1,10 em cada parcela");
+            System.out.println("O valor final do carro é:R$"+valorFinal);
+            System.out.println("O valor será dividido em: "+parcelas + " de R$" +valorParcela);
+        } else {
+            double valorFinal = valor * 1.20;
+            double valorParcela = valorFinal/parcelas;
+            System.out.println("Serão aplicados juros de 1,20 em cada parcela");
+            System.out.println("O valor final do carro é:R$"+valorFinal);
+            System.out.println("O valor será dividido em: "+parcelas + " de R$" +valorParcela);
         }
     }
     public void addCarro(){
