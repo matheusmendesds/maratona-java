@@ -18,6 +18,7 @@ public class jogadorTest01 {
         jogador03.imprime();
         // n funciona do jeito q quero ainda
         jogador03.comparar(jogador01,jogador02);
+        //mudar no jogador
 
     }
 }
