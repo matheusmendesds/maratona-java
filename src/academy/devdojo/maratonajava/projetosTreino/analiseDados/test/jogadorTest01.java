@@ -9,14 +9,18 @@ public class jogadorTest01 {
         Jogador jogador02 = new Jogador("Rollheiser",25,10,12,10,5,340);
         Jogador jogador03 = new Jogador("Bontempo",21,23,2,15,4,260);
         Clube santos = new Clube("Santos Fc", 1912);
+
+        //colocando jogadores no time
         jogador01.setClube(santos);
         jogador02.setClube(santos);
         jogador03.setClube(santos);
 
+        //Analise stats de jogadores
         jogador01.imprime();
         jogador02.imprime();
         jogador03.imprime();
 
+        //lista de jogaadores
         santos.listarJogadores();
 
     }
