@@ -24,6 +24,7 @@ public class Clube {
         System.out.println("Jogadores do " + nome + ":");
         for (Jogador j : jogadores) {
             System.out.println("- " + j.nome);
+
         }
     }
 
