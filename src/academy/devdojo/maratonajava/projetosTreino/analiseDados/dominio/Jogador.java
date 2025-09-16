@@ -10,6 +10,7 @@ public class Jogador {
     public int jogos;
     public int assistencias;
     public int passes;
+    public Clube clube;
 
     private double golsPorJogo;
     private double passesPorJogo;
@@ -26,11 +27,9 @@ public class Jogador {
         this.assistencias = assistencias;
         this.passes = passes;
     }
-    public void comparar(Jogador j1,Jogador j2) {
-        //mudar essa função para conseguir comparar stats de jogadores
-        System.out.println("Nome:" + j1.nome);
-        System.out.println("Nome:" + j2.nome);
-        
+    public void setClube(Clube clube) {
+        this.clube = clube;
+        clube.adicionarJogador(this); // adiciona jogador no clube também
     }
 
     public void imprime() {
