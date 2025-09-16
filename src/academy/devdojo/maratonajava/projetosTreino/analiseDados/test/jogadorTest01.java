@@ -1,5 +1,6 @@
 package academy.devdojo.maratonajava.projetosTreino.analiseDados.test;
 
+import academy.devdojo.maratonajava.projetosTreino.analiseDados.dominio.Clube;
 import academy.devdojo.maratonajava.projetosTreino.analiseDados.dominio.Jogador;
 
 public class jogadorTest01 {
@@ -8,6 +9,7 @@ public class jogadorTest01 {
         // jogador01.calcularStats();
         Jogador jogador02 = new Jogador("Rollheiser",25,10,12,10,5,340);
         Jogador jogador03 = new Jogador("Bontempo",21,23,2,15,4,260);
+        Clube time01 = new Clube("Santos Fc", 1912)
         //jogador03.imprime();
         // jogador02.analiseJogador();
         //jogador03.analiseJogador();
