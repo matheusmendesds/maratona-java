@@ -30,10 +30,10 @@ public class Jogador {
         //mudar essa função para conseguir comparar stats de jogadores
         System.out.println("Nome:" + j1.nome);
         System.out.println("Nome:" + j2.nome);
-
+        
     }
 
-    public void imprime(){
+    public void imprime() {
         cabecalho();
         analiseJogador();
     }
