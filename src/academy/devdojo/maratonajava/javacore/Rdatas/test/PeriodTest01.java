@@ -14,11 +14,12 @@ public class PeriodTest01 {
         Period p3 = Period.ofWeeks(58);
         Period p4 = Period.ofMonths(58);
         Period p5 = Period.ofYears(3);
-
+        Period p6 = Period.of(26,9,18);
         System.out.println(p1);
         System.out.println(p2);
         System.out.println(p3);
         System.out.println(p4);
         System.out.println(p5);
+        System.out.println(p6);
     }
 }
