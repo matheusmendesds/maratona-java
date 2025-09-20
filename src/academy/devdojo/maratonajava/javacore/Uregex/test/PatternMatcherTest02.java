@@ -5,9 +5,16 @@ import java.util.regex.Pattern;
 
 public class PatternMatcherTest02 {
     public static void main(String[] args) {
-        String regex = "aba";
+        // \d = Todos os digitos
+        // \D = Tudo oq não for digitp
+        // \s = Espaços em brancp -> \t \n \f \r
+        // \S = Todos os caracters excluindo os brancos
+        // \w= a-ZA-Z, digitos, _
+        // \W = Tudo que não for incluso no \w
+
+        String regex = "\\W";
         //String texto = "abaaba";
-        String texto2 = "abababa";
+        String texto2 = "@#hh_j2 12jgb21";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto2);
