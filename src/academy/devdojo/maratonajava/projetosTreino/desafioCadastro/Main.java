@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         File fileFormulario= new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
         Formulario formulario = new Formulario(fileFormulario);
-        Formulario.criarForm();
-        Formulario.addLinha("teste",fileFormulario);
+        formulario.criarForm();
+
     }
 }
