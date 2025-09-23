@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Formulario {
-    private File file;
+    private static File file;
 
     public Formulario(File file) {
         this.file = file;
@@ -16,9 +16,10 @@ public class Formulario {
         try {
             File fileFormulario= new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
             boolean isFileCreated = fileFormulario.createNewFile();
-            System.out.println(isFileCreated);
             if (isFileCreated) {
                 addLinha(fileFormulario);
+            } else {
+                System.out.println(" ");
             }
         } catch(IOException ex){
             ex.printStackTrace();
