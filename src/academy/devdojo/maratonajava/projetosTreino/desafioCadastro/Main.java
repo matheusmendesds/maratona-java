@@ -17,7 +17,7 @@ public class Main {
         int i = scanner.nextInt();
         switch (i){
             case 1:
-                cadastro();
+                cadastroPet();
                 break;
             case 2:
                 System.out.println("Alterar dados");
@@ -39,7 +39,7 @@ public class Main {
         }
     }
 
-    public static void cadastro() throws FileNotFoundException {
+    public static void cadastroPet() throws FileNotFoundException {
         Scanner scanner = new Scanner(fileFormulario);
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
