@@ -32,7 +32,7 @@ public class Main {
                 System.out.println("listar por criterios");
                 break;
             case 6:
-                System.out.println("Sair");
+                scanner.close();
                 break;
             default:
                 menu();
@@ -44,6 +44,9 @@ public class Main {
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             System.out.println(linha);
+            String resp= scanner.next();
+
+
         }
     }
 
