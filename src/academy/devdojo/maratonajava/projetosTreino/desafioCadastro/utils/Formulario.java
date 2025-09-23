@@ -24,7 +24,7 @@ public class Formulario {
             ex.printStackTrace();
         }
     }
-    public static void addLinha(File file) throws IOException {
+    private static void addLinha(File file) throws IOException {
         FileWriter fw = new FileWriter(file, true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write("1 - Qual o nome e sobrenome do pet?");
