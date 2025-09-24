@@ -46,12 +46,20 @@ public class Main {
             String linha = scanner.nextLine();
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
-            String resp= teclado.next();
+            String resp = teclado.next();
+            String regexNome ="[a-zA-Z]+(\\sL[a-zA-Z]+)+$";
+            String regexIdade ="[0-9]+[0-9]$";
             switch (contador){
                 case 1:
-                    pet.setNome(resp);
-                    nome = resp;
-                    break;
+                    if(resp.matches(regexNome)){
+                        pet.setNome(resp);
+                        nome = resp;
+                        break;
+                    } else {
+                        System.out.println("Nome errado");
+                        break;
+                    }
+
                 case 2:
                     pet.setTipo(resp);
                     break;
@@ -62,8 +70,13 @@ public class Main {
                     pet.setEndereco(resp);
                     break;
                 case 5:
-                    pet.setIdade(Integer.parseInt(resp));
-                    break;
+                    if (resp.matches(regexIdade)) {
+                        pet.setIdade(Integer.parseInt(resp));
+                        break;
+                    } else {
+                        System.out.println("numero Invalido");
+                        break;
+                    }
                 case 6:
                     pet.setPeso(Integer.parseInt(resp));
                     break;
@@ -77,7 +90,7 @@ public class Main {
         }
         System.out.println(pet.getNome());
     }
-    
+
     public static void arquivoPet(int contador,String resp, String pet){
         File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ pet + ".txt");
         try(FileWriter fw = new FileWriter(file,true);
