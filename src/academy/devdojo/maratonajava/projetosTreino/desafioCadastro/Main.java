@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Formulario;
+import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,15 +44,23 @@ public class Main {
 
     public static void cadastroPet() throws FileNotFoundException {
         Scanner scanner = new Scanner(fileFormulario);
-        List<String> dados = new ArrayList<>();
+        //List<String> dados = new ArrayList<>();
+        Pet dados = new Pet();
+        dados.setIdade(12);
+        dados.setNome("Teste");
+        dados.setEndereco("Teste");
+        dados.setPeso(3);
+        dados.setRaca("Teste");
+        dados.setTipo("Teste");
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
             String resp= teclado.next();
-            dados.add(resp);
-            System.out.println(dados);
 
+
+
+            System.out.println(dados);
         }
     }
 
