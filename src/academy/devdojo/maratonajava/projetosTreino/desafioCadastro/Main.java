@@ -40,6 +40,7 @@ public class Main {
     public static void cadastroPet() throws FileNotFoundException {
         Scanner scanner = new Scanner(fileFormulario);
         Pet pet = new Pet();
+        String nome = "";
         int contador = 1;
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
@@ -49,6 +50,7 @@ public class Main {
             switch (contador){
                 case 1:
                     pet.setNome(resp);
+                    nome = resp;
                     break;
                 case 2:
                     pet.setTipo(resp);
@@ -70,17 +72,22 @@ public class Main {
                     break;
             }
 
-            File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ pet.getNome() + ".txt");
-            try(FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw)) {
-                bw.write(contador +"-"+ resp +"\n");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            arquivoPet(contador,resp,nome);
             contador++;
         }
         System.out.println(pet.getNome());
     }
+    
+    public static void arquivoPet(int contador,String resp, String pet){
+        File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ pet + ".txt");
+        try(FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(contador +"-"+ resp +"\n");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
