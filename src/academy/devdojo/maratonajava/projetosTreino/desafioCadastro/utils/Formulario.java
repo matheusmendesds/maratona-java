@@ -38,7 +38,7 @@ public class Formulario {
         bw.newLine();
         bw.write("5 - Qual a idade aproximada do pet?");
         bw.newLine();
-        bw.write("5 - Qual a idade aproximada do pet?");
+        bw.write("6 - Qual o peso aproximado do pet?");
         bw.newLine();
         bw.write("7 - Qual a raça do pet?");
         bw.newLine();
