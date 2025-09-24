@@ -1,13 +1,8 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 
-import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Formulario;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
@@ -44,20 +39,51 @@ public class Main {
 
     public static void cadastroPet() throws FileNotFoundException {
         Scanner scanner = new Scanner(fileFormulario);
-        //List<String> dados = new ArrayList<>();
+        Pet pet = new Pet();
+        int contador = 1;
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
             String resp= teclado.next();
+            switch (contador){
+                case 1:
+                    pet.setNome(resp);
+                    break;
+                case 2:
+                    pet.setTipo(resp);
+                    break;
+                case 3:
+                    pet.setSexo(Pet.Sexo.valueOf(resp.toUpperCase()));
+                    break;
+                case 4:
+                    pet.setEndereco(resp);
+                    break;
+                case 5:
+                    pet.setIdade(Integer.parseInt(resp));
+                    break;
+                case 6:
+                    pet.setPeso(Integer.parseInt(resp));
+                    break;
+                case 7:
+                    pet.setRaca(resp);
+                    break;
+            }
 
+            File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ pet.getNome() + ".txt");
+            try(FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw)) {
+                bw.write(contador +"-"+ resp +"\n");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            contador++;
         }
+        System.out.println(pet.getNome());
     }
 
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
-        Formulario formulario = new Formulario(fileFormulario);
-        formulario.criarForm();
         menu();
 
 

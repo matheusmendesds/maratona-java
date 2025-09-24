@@ -3,13 +3,22 @@ package academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils;
 public class Pet {
     private String nome;
     private String tipo;
-    private enum sexo{
-        Macho,Femea;
+    private Sexo sexo;
+    public enum Sexo{
+        MACHO,FEMEA;
     };
     private String endereco;
     private int idade;
     private double peso;
     private String raca;
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
 
     public String getNome() {
         return nome;
