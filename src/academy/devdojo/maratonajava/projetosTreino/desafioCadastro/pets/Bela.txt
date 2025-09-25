@@ -1,7 +1,0 @@
-1-Bela
-2-Cachorro
-3-Femea
-4-Rua
-5-4
-6-2
-7-poodle

@@ -3,16 +3,16 @@ package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Scanner;
 
 public class Main {
     private static File fileFormulario;
     static String padraoSemInformacao = "NÃO INFORMADO";
 
-    public static void respostaVazia(String resp){
-        resp = padraoSemInformacao;
-        System.out.println(resp);
-    }
 
     public static void menu() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
@@ -46,7 +46,6 @@ public class Main {
     public static void cadastroPet() throws FileNotFoundException {
         Scanner scanner = new Scanner(fileFormulario);
         Pet pet = new Pet();
-        String nome = "";
         int contador = 1;
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
@@ -57,17 +56,15 @@ public class Main {
             String regexIdade = "^[0-9]{1,2}$";
             switch (contador){
                 case 1:
-                    if(resp.matches(regexNome)){
+                    if(resp.isEmpty() || resp == " ") {
+                        resp = padraoSemInformacao;
+                        pet.setNome(resp);
+                        System.out.println(resp);
+                        break;
+                    } else if(resp.matches(regexNome)) {
                         System.out.println(resp.matches(regexNome));
                         pet.setNome(resp);
-                        nome = resp;
                         break;
-                    } else if(resp.isEmpty()) {
-                        respostaVazia(resp);
-                        break;
-                    } else{
-                    System.out.println("Nome errado");
-                    break;
                     }
                 case 2:
                     pet.setTipo(resp);
@@ -83,7 +80,8 @@ public class Main {
                         pet.setIdade(Integer.parseInt(resp));
                         break;
                     } else if(resp.isEmpty()) {
-                            respostaVazia(resp);
+                            resp = padraoSemInformacao;
+                            pet.setIdade(Integer.parseInt(resp));
                             break;
                     } else {
                         System.out.println("numero Invalido");
@@ -91,20 +89,22 @@ public class Main {
                     }
                 case 6:
                     if (resp.isEmpty()){
-                        respostaVazia(resp);
+                        resp = padraoSemInformacao;
+                        pet.setPeso(Integer.parseInt(resp));
                     } else {
                         pet.setPeso(Integer.parseInt(resp));
                     }
                     break;
                 case 7:
                     if (resp.isEmpty()){
-                        respostaVazia(resp);
+                        resp = padraoSemInformacao;
+                        pet.setRaca(resp);
                     } else {
                         pet.setRaca(resp);
                     }
                     break;
             }
-
+            String nome = pet.getNome().toUpperCase().replaceAll("\\s","");
             arquivoPet(contador,resp,nome);
             contador++;
         }
@@ -112,7 +112,9 @@ public class Main {
     }
 
     public static void arquivoPet(int contador,String resp, String pet){
-        File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ pet + ".txt");
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm'-'");
+        String horaDia = LocalDateTime.now().format(format);
+        File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ horaDia + pet + ".txt");
         try(FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(contador +"-"+ resp +"\n");
@@ -124,11 +126,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
-        String teste = "";
-        respostaVazia(teste);
         menu();
-
-
     }
 
 }
