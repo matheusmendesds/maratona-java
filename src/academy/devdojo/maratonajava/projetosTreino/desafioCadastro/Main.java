@@ -7,6 +7,12 @@ import java.util.Scanner;
 
 public class Main {
     private static File fileFormulario;
+    static String padraoSemInformacao = "NÃO INFORMADO";
+
+    public static void respostaVazia(String resp){
+        resp = padraoSemInformacao;
+        System.out.println(resp);
+    }
 
     public static void menu() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
@@ -46,20 +52,23 @@ public class Main {
             String linha = scanner.nextLine();
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
-            String resp = teclado.next();
-            String regexNome ="[a-zA-Z]+(\\sL[a-zA-Z]+)+$";
-            String regexIdade ="[0-9]+[0-9]$";
+            String resp = teclado.nextLine();
+            String regexNome = "^[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
+            String regexIdade = "^[0-9]{1,2}$";
             switch (contador){
                 case 1:
                     if(resp.matches(regexNome)){
+                        System.out.println(resp.matches(regexNome));
                         pet.setNome(resp);
                         nome = resp;
                         break;
-                    } else {
-                        System.out.println("Nome errado");
+                    } else if(resp.isEmpty()) {
+                        respostaVazia(resp);
                         break;
+                    } else{
+                    System.out.println("Nome errado");
+                    break;
                     }
-
                 case 2:
                     pet.setTipo(resp);
                     break;
@@ -73,15 +82,26 @@ public class Main {
                     if (resp.matches(regexIdade)) {
                         pet.setIdade(Integer.parseInt(resp));
                         break;
+                    } else if(resp.isEmpty()) {
+                            respostaVazia(resp);
+                            break;
                     } else {
                         System.out.println("numero Invalido");
                         break;
                     }
                 case 6:
-                    pet.setPeso(Integer.parseInt(resp));
+                    if (resp.isEmpty()){
+                        respostaVazia(resp);
+                    } else {
+                        pet.setPeso(Integer.parseInt(resp));
+                    }
                     break;
                 case 7:
-                    pet.setRaca(resp);
+                    if (resp.isEmpty()){
+                        respostaVazia(resp);
+                    } else {
+                        pet.setRaca(resp);
+                    }
                     break;
             }
 
@@ -104,6 +124,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
+        String teste = "";
+        respostaVazia(teste);
         menu();
 
 
