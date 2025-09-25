@@ -1,5 +1,6 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 
+import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.NameException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
 import java.io.*;
@@ -10,7 +11,6 @@ import java.util.Scanner;
 public class Main {
     private static File fileFormulario;
     static String padraoSemInformacao = "NÃO INFORMADO";
-
 
     public static void menu() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
@@ -50,11 +50,11 @@ public class Main {
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
             String resp = teclado.nextLine();
-            String regexNome = "^[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
+            String regexNome = "[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
             String regexIdade = "^[0-9]{1,2}$";
             switch (contador){
                 case 1:
-                    if(resp.isEmpty() || resp == " ") {
+                    if(resp.isEmpty()) {
                         resp = padraoSemInformacao;
                         pet.setNome(resp);
                         System.out.println(resp);
@@ -63,6 +63,8 @@ public class Main {
                         System.out.println(resp.matches(regexNome));
                         pet.setNome(resp);
                         break;
+                    } else {
+                        throw new NameException();
                     }
                 case 2:
                     pet.setTipo(resp);
