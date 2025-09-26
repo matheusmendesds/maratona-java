@@ -1,6 +1,7 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.NameException;
+import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.SexoException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
 import java.io.*;
@@ -72,8 +73,8 @@ public class Main {
                     pet.setTipo(resp);
                     break;
                 case 3:
-                    pet.setSexo(Pet.Sexo.valueOf(resp.toUpperCase()));
-                    break;
+                        pet.setSexo(Pet.Sexo.valueOf(resp.toUpperCase()));
+                        break;
                 case 4:
                     pet.setEndereco(resp);
                     break;
