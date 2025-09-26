@@ -10,8 +10,8 @@ public class Pet {
         MACHO,FEMEA;
     };
     private String endereco;
-    private int idade;
-    private double peso;
+    private String idade;
+    private String peso;
     private String raca;
 
     public Sexo getSexo() {
@@ -46,19 +46,19 @@ public class Pet {
         this.endereco = endereco;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public double getPeso() {
+    public String getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 

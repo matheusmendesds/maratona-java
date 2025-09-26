@@ -46,13 +46,13 @@ public class Main {
         Scanner scanner = new Scanner(fileFormulario);
         Pet pet = new Pet();
         int contador = 1;
+        String regexNome = "[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
+        String regexIdade = "^[0-9]{1,2}$";
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             System.out.println(linha);
             Scanner teclado = new Scanner(System.in);
             String resp = teclado.nextLine();
-            String regexNome = "[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
-            String regexIdade = "^[0-9]{1,2}$";
             switch (contador){
                 case 1:
                    if(resp.matches(regexNome)) {
@@ -80,11 +80,11 @@ public class Main {
                     break;
                 case 5:
                     if (resp.matches(regexIdade)) {
-                        pet.setIdade(Integer.parseInt(resp));
+                        pet.setIdade(resp);
                         break;
                     } else if(resp.isEmpty()) {
                             resp = padraoSemInformacao;
-                            pet.setIdade(Integer.parseInt(resp));
+                            pet.setIdade(resp);
                             break;
                     } else {
                         System.out.println("numero Invalido");
@@ -93,9 +93,9 @@ public class Main {
                 case 6:
                     if (resp.isEmpty()){
                         resp = padraoSemInformacao;
-                        pet.setPeso(Integer.parseInt(resp));
+                        pet.setPeso((resp));
                     } else {
-                        pet.setPeso(Integer.parseInt(resp));
+                        pet.setPeso(resp);
                     }
                     break;
                 case 7:
@@ -111,7 +111,6 @@ public class Main {
             arquivoPet(contador,resp,nome);
             contador++;
         }
-        System.out.println(pet.getNome());
     }
 
     public static void arquivoPet(int contador,String resp, String pet){
