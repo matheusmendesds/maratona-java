@@ -54,16 +54,18 @@ public class Main {
             String regexIdade = "^[0-9]{1,2}$";
             switch (contador){
                 case 1:
-                    if(resp.isEmpty()) {
-                        resp = padraoSemInformacao;
-                        pet.setNome(resp);
-                        System.out.println(resp);
-                        break;
-                    } else if(resp.matches(regexNome)) {
+                   if(resp.matches(regexNome)) {
                         System.out.println(resp.matches(regexNome));
                         pet.setNome(resp);
                         break;
-                    } else {
+                   }else if(resp.trim().isEmpty()) {
+                       resp = padraoSemInformacao;
+                       pet.setNome(resp);
+                       System.out.println("nome else if:"+resp);
+                       break;
+
+                   }else{
+                        System.out.println("nome else:"+resp);
                         throw new NameException();
                     }
                 case 2:
