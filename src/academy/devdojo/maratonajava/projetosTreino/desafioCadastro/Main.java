@@ -65,7 +65,6 @@ public class Main {
                        pet.setNome(resp);
                        System.out.println("nome else if:"+resp);
                        break;
-
                    }else{
                         throw new NameException();
                     }
@@ -135,7 +134,7 @@ public class Main {
         File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\"+ horaDia + pet + ".txt");
         try(FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw)) {
-            bw.write(contador +"-"+ resp +"\n");
+            bw.write(contador +" - "+ resp +"\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
