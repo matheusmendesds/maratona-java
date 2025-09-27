@@ -69,7 +69,6 @@ public class Main {
                        break;
 
                    }else{
-                        System.out.println("nome else:"+resp);
                         throw new NameException();
                     }
                 case 2:
@@ -83,11 +82,13 @@ public class Main {
                     String cidade = teclado.nextLine();
                     System.out.println("Numero da casa:");
                     String numCasa = teclado.nextLine();
-                    pet.setEndere(numCasa,cidade,resp);
+                    resp = (resp+","+numCasa+","+cidade);
+                    pet.setEndereco(resp);
                     break;
                 case 5:
                     int idade = Integer.parseInt(resp);
                     if (resp.matches(regexIdade) && idade < 20) {
+                        resp = (resp+" anos");
                         pet.setIdade(resp);
                         break;
                     } else if(resp.isEmpty()) {
@@ -100,6 +101,7 @@ public class Main {
                 case 6:
                     double peso = Double.parseDouble(resp);
                     if  (peso > 0.5 && peso < 60){
+                        resp=(resp+"Kg");
                         pet.setPeso((resp));
                         break;
                     } else if (resp.isEmpty() ) {
