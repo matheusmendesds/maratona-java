@@ -50,6 +50,7 @@ public class Main {
         int contador = 1;
         String regexNome = "[A-Za-zÀ-ÿ]+(\\s+[A-Za-zÀ-ÿ]+)+$";
         String regexIdade = "^[0-9]{1,2}$";
+        String regexRaca = "[A-Za-zÀ-ÿ]+$";
         while (scanner.hasNextLine()) {
             String linha = scanner.nextLine();
             System.out.println(linha);
@@ -113,10 +114,14 @@ public class Main {
                     if (resp.isEmpty()){
                         resp = padraoSemInformacao;
                         pet.setRaca(resp);
-                    } else {
+                        break;
+                    } else if (resp.matches(regexRaca)){
                         pet.setRaca(resp);
+                        break;
+                    } else {
+                        System.out.println("Invalido");
                     }
-                    break;
+
             }
             String nome = pet.getNome().toUpperCase().replaceAll("\\s","");
             arquivoPet(contador,resp,nome);
