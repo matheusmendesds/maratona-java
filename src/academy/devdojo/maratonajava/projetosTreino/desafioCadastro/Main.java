@@ -59,7 +59,6 @@ public class Main {
             switch (contador){
                 case 1:
                    if(resp.matches(regexNome)) {
-                        System.out.println(resp.matches(regexNome));
                         pet.setNome(resp);
                         break;
                    }else if(resp.trim().isEmpty()) {
