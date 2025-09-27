@@ -76,8 +76,11 @@ public class Main {
                         pet.setSexo(Pet.Sexo.valueOf(resp.toUpperCase()));
                         break;
                 case 4:
-
-
+                    System.out.println("Qual a cidade?");
+                    String cidade = teclado.nextLine();
+                    System.out.println("Numero da casa:");
+                    String numCasa = teclado.nextLine();
+                    pet.setEndere(numCasa,cidade,resp);
                     break;
                 case 5:
                     if (resp.matches(regexIdade)) {
@@ -114,15 +117,6 @@ public class Main {
         }
     }
 
-//    Na pergunta sobre o endereço, você deverá perguntar:
-//    Número da casa
-//            Cidade
-//    Rua
-//    Na idade e peso aproximados do pet, o usuário poderá digitar números com vírgulas ou ponto, mas somente números.
-//    Caso o usuário digite um peso maior que 60kg ou um peso menor que 0.5kg, lance uma exceção.
-//    Caso o usuário digite uma idade maior que 20 anos, lance uma exceção.
-//    Caso o usuário digite uma idade menor que 1 ano (idade em meses), transforme em 0.x anos.
-//    No campo raça o usuário não poderá usar números nem caracteres especiais.
     public static void arquivoPet(int contador,String resp, String pet){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm'-'");
         String horaDia = LocalDateTime.now().format(format);

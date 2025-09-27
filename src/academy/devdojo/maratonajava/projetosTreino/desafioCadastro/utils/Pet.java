@@ -9,7 +9,7 @@ public class Pet {
     public enum Sexo{
         MACHO,FEMEA;
     };
-    private String[] endere;
+    private String[] endere = new String[3];
     private String endereco;
     private String idade;
     private String peso;
@@ -19,8 +19,10 @@ public class Pet {
         return endere;
     }
 
-    public void setEndere(String[] endere) {
-        this.endere = endere;
+    public void setEndere(String numCasa, String cidade, String complemento) {
+        endere[0] = numCasa;
+        endere[1] = cidade;
+        endere[2] = complemento;
     }
 
     public Sexo getSexo() {
