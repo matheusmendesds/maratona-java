@@ -1,6 +1,8 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 
+import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.IdadeException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.NameException;
+import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.PesoException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.SexoException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
@@ -83,7 +85,8 @@ public class Main {
                     pet.setEndere(numCasa,cidade,resp);
                     break;
                 case 5:
-                    if (resp.matches(regexIdade)) {
+                    int idade = Integer.parseInt(resp);
+                    if (resp.matches(regexIdade) && idade < 20) {
                         pet.setIdade(resp);
                         break;
                     } else if(resp.isEmpty()) {
@@ -91,17 +94,21 @@ public class Main {
                             pet.setIdade(resp);
                             break;
                     } else {
-                        System.out.println("numero Invalido");
-                        break;
+                        throw new IdadeException();
                     }
                 case 6:
-                    if (resp.isEmpty()){
-                        resp = padraoSemInformacao;
+                    double peso = Double.parseDouble(resp);
+                    if  (peso > 0.5 && peso < 60){
                         pet.setPeso((resp));
-                    } else {
+                        break;
+                    } else if (resp.isEmpty() ) {
+                        resp = padraoSemInformacao;
                         pet.setPeso(resp);
+                        break;
+                    } else {
+                        throw new PesoException();
                     }
-                    break;
+
                 case 7:
                     if (resp.isEmpty()){
                         resp = padraoSemInformacao;
