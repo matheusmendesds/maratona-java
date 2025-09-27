@@ -3,7 +3,6 @@ package academy.devdojo.maratonajava.projetosTreino.desafioCadastro;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.IdadeException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.NameException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.PesoException;
-import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.SexoException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
 import java.io.*;
