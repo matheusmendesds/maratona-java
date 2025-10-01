@@ -8,12 +8,14 @@ import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     private static File fileFormulario;
     static String padraoSemInformacao = "NÃO INFORMADO";
-
+    static ArrayList<Pet> pets = new ArrayList<>();
+    static String nome;
     public static void menu() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("1-Cadastrar um novo pet\n" + "2-Alterar os dados do pet cadastrado\n" + "3-Deletar um pet cadastrado\n" + "4-Listar todos os pets cadastrados\n" + "5-Listar pets por algum critério (idade, nome, raça)\n" + "6-Sair");
@@ -122,10 +124,14 @@ public class Main {
                     }
 
             }
-            String nome = pet.getNome().toUpperCase().replaceAll("\\s","");
+            nome = pet.getNome().toUpperCase().replaceAll("\\s","");
             arquivoPet(contador,resp,nome);
             contador++;
         }
+        pets.add(pet);
+        for (Pet p : pets) {
+            System.out.println(p.getNome());
+        };
     }
 
     public static void arquivoPet(int contador,String resp, String pet){
