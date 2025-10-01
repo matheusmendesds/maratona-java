@@ -124,6 +124,7 @@ public class Main {
             }
             String nome = pet.getNome().toUpperCase().replaceAll("\\s","");
             arquivoPet(contador,resp,nome);
+            System.out.println(pet);
             contador++;
         }
     }
