@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
     private static File fileFormulario;
     static String padraoSemInformacao = "NÃO INFORMADO";
-    //Array de pets
+    //Array de pets 
     static ArrayList<Pet> pets = new ArrayList<>();
     static String nome;
 
@@ -28,18 +28,15 @@ public class Main {
                 cadastroPet();
                 break;
             case 2:
-                System.out.println("Alterar dados");
+                System.out.println("Buscar pet");
                 break;
             case 3:
-                System.out.println("Deletar");
+                System.out.println("Alterar dados");
                 break;
             case 4:
-                System.out.println("Listar todos");
+                System.out.println("Deletar pet");
                 break;
             case 5:
-                System.out.println("listar por criterios");
-                break;
-            case 6:
                 scanner.close();
                 break;
             default:
