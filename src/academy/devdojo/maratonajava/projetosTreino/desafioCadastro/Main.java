@@ -28,7 +28,7 @@ public class Main {
                 cadastroPet();
                 break;
             case 2:
-                System.out.println("Buscar pet");
+                buscarPet();
                 break;
             case 3:
                 System.out.println("Alterar dados");
@@ -147,7 +147,12 @@ public class Main {
         }
     }
 
-
+    public static void buscarPet() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do pet:");
+        String pet = scanner.nextLine();
+        System.out.println(pet);
+    }
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
         menu();
