@@ -30,10 +30,7 @@ public class Main {
                 cadastroPet();
                 break;
             case 2:
-                System.out.println("Lista de pets cadastrados:");
-                for (Pet p : pets) {
-                    System.out.println(p);
-                }
+                buscarPet();
                 break;
             case 3:
                 System.out.println("Alterar dados");
@@ -190,15 +187,29 @@ public class Main {
         }
     }
     public static void buscarPet() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do pet:");
-        String pet = scanner.nextLine();
-        Pattern pattern = Pattern.compile(pet);
-        Matcher matcher = pattern.matcher("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\20250927T1946-FLORZINHADASILVA.txt");
-        System.out.println(pet);
-        while (matcher.find()){
-            System.out.print(matcher.start()+" "+matcher.group()+"\n");
+        String nomeBusca = scanner.nextLine();
+
+        boolean encontrado = false;
+        for (Pet p : pets) {
+            if (p.getNome() == null) continue;
+            Pattern pattern = Pattern.compile(nomeBusca , Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(p.getNome());
+
+            if(matcher.find()){
+                System.out.println("Pet encontrado:");
+                System.out.println(p);
+                encontrado = true;
+            }
+
         }
+
+        if (!encontrado) {
+            System.out.println("Nenhum pet encontrado com o nome: " + nomeBusca);
+        }
+
     }
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
