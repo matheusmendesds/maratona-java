@@ -21,7 +21,7 @@ public class Main {
 
     public static void menu() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("1-Cadastrar um novo pet\n" + "2-Alterar os dados do pet cadastrado\n" + "3-Deletar um pet cadastrado\n" + "4-Listar todos os pets cadastrados\n" + "5-Listar pets por algum critério (idade, nome, raça)\n" + "6-Sair");
+        System.out.println("1-Cadastrar um novo pet\n" + "2-Buscar dados do pet cadastrado\n" + "3-Alterar um pet cadastrado\n" + "4-Deletar um pet cadastrado\n" + "5-Sair");
         int i = scanner.nextInt();
         switch (i){
             case 1:
