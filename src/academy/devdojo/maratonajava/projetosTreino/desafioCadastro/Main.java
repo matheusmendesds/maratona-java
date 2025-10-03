@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     private static File fileFormulario;
@@ -28,7 +30,10 @@ public class Main {
                 cadastroPet();
                 break;
             case 2:
-                buscarPet();
+                System.out.println("Lista de pets cadastrados:");
+                for (Pet p : pets) {
+                    System.out.println(p);
+                }
                 break;
             case 3:
                 System.out.println("Alterar dados");
@@ -131,8 +136,9 @@ public class Main {
         //precisa adicionar e gravar os pets em um array ainda
         pets.add(pet);
         for (Pet p : pets) {
-            System.out.println(p.getNome());
-        };
+            System.out.println(p);
+        }
+
     }
 
     public static void arquivoPet(int contador,String resp, String pet){
@@ -147,14 +153,59 @@ public class Main {
         }
     }
 
+    public static void carregarPets() {
+        File pasta = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets");
+        if (!pasta.exists() || !pasta.isDirectory()) {
+            System.out.println("Nenhum pet encontrado ainda.");
+            return;
+        }
+
+        File[] arquivos = pasta.listFiles((dir, name) -> name.endsWith(".txt"));
+        if (arquivos == null) return;
+
+        for (File arquivo : arquivos) {
+            try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+                Pet pet = new Pet();
+                String linha;
+                while ((linha = br.readLine()) != null) {
+                    String[] partes = linha.split(" - ");
+                    if (partes.length < 2) continue;
+                    int campo = Integer.parseInt(partes[0].trim());
+                    String valor = partes[1].trim();
+
+                    switch (campo) {
+                        case 1: pet.setNome(valor); break;
+                        case 2: pet.setTipo(valor); break;
+                        case 3: pet.setSexo(Pet.Sexo.valueOf(valor.toUpperCase())); break;
+                        case 4: pet.setEndereco(valor); break;
+                        case 5: pet.setIdade(valor); break;
+                        case 6: pet.setPeso(valor); break;
+                        case 7: pet.setRaca(valor); break;
+                    }
+                }
+                pets.add(pet);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public static void buscarPet() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o nome do pet:");
         String pet = scanner.nextLine();
+        Pattern pattern = Pattern.compile(pet);
+        Matcher matcher = pattern.matcher("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets\\20250927T1946-FLORZINHADASILVA.txt");
         System.out.println(pet);
+        while (matcher.find()){
+            System.out.print(matcher.start()+" "+matcher.group()+"\n");
+        }
     }
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
+        carregarPets();
+//        for (Pet p : pets) {
+//            System.out.println(p);
+//        }
         menu();
     }
 

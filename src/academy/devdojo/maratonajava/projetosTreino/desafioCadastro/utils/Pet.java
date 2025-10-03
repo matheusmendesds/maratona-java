@@ -80,4 +80,17 @@ public class Pet {
     public void setRaca(String raca) {
         this.raca = raca;
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", sexo=" + sexo +
+                ", endereco='" + endereco + '\'' +
+                ", idade='" + idade + '\'' +
+                ", peso='" + peso + '\'' +
+                ", raca='" + raca + '\'' +
+                '}';
+    }
 }
