@@ -129,11 +129,7 @@ public class Main {
             arquivoPet(contador,resp,nome);
             contador++;
         }
-        //precisa adicionar e gravar os pets em um array ainda
         pets.add(pet);
-        for (Pet p : pets) {
-            System.out.println(p);
-        }
 
     }
 
