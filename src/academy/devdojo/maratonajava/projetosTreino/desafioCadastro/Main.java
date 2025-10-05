@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
 public class Main {
     private static File fileFormulario;
     static String padraoSemInformacao = "NÃO INFORMADO";
-    //Array de pets 
     static ArrayList<Pet> pets = new ArrayList<>();
     static String nome;
 
