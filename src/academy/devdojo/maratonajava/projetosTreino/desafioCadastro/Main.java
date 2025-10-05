@@ -209,9 +209,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
         carregarPets();
-//        for (Pet p : pets) {
-//            System.out.println(p);
-//        }
         menu();
     }
 
