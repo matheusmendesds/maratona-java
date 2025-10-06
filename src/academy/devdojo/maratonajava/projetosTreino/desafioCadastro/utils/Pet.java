@@ -23,7 +23,7 @@ public class Pet {
         endere[2] = complemento;
     }
 
-    public CharSequence getSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
