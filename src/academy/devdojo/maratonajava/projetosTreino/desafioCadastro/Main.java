@@ -184,9 +184,15 @@ public class Main {
     public static void buscarPet() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite o nome do pet:");
-        String nomeBusca = scanner.nextLine();
-
+        System.out.println("Por qual dado buscar pet?");
+        System.out.println("1-Nome ou sobrenome\n" +
+                "2-Sexo\n" +
+                "3-Idade\n" +
+                "4-Peso\n" +
+                "5-Raça\n" +
+                "6-Endereço");
+        int opcaoSelecionada = Integer.parseInt(scanner.nextLine());
+        
         boolean encontrado = false;
         for (Pet p : pets) {
             if (p.getNome() == null) continue;
