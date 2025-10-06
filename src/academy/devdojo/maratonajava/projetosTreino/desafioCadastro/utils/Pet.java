@@ -1,7 +1,5 @@
 package academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils;
 
-import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.NameException;
-
 public class Pet {
     private String nome;
     private String tipo;
@@ -25,7 +23,7 @@ public class Pet {
         endere[2] = complemento;
     }
 
-    public Sexo getSexo() {
+    public CharSequence getSexo() {
         return sexo;
     }
 
