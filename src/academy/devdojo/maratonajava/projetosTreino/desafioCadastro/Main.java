@@ -213,6 +213,17 @@ public class Main {
                     }
                 case 2:
                     for(Pet p : pets) {
+                        if (p.getSexo() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+                        matcher = pattern.matcher(p.getSexo().name());
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
+                    }
+                case 3:
+                    for(Pet p : pets) {
                         if (p.getIdade() == null) continue;
                         pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getIdade());
@@ -227,14 +238,6 @@ public class Main {
                     break;
 
             }
-//            if (p.getNome() == null) continue;
-//            Pattern pattern = Pattern.compile(nomeBusca , Pattern.CASE_INSENSITIVE);
-//            Matcher matcher = pattern.matcher(p.getNome());
-//            if(matcher.find()){
-//                System.out.println("Pet encontrado:");
-//                System.out.println(p);
-//                encontrado = true;
-//            }
 
 
         if (!encontrado) {

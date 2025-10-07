@@ -24,6 +24,7 @@ public class Pet {
     }
 
     public Sexo getSexo() {
+
         return sexo;
     }
 
