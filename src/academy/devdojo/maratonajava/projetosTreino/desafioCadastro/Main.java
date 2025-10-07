@@ -193,10 +193,18 @@ public class Main {
                 "3-Idade\n" +
                 "4-Peso\n" +
                 "5-Raça\n" +
-                "6-Endereço");
+                "6-Endereço\n"+
+                "7-Nome e Idade\n"+
+                "8-Idade e Peso\n"
+        );
         int opcaoSelecionada = Integer.parseInt(scanner.nextLine());
+        if(opcaoSelecionada == 7 || opcaoSelecionada == 8){
+            System.out.println("aguarde um momento");
+            scanner.close();
+        }
         System.out.println("Digita a palavra de busca:");
         String nomeBusca = scanner.nextLine();
+
         boolean encontrado = false;
             switch (opcaoSelecionada){
                 case 1:
