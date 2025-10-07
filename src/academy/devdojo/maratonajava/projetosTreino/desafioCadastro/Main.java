@@ -198,30 +198,34 @@ public class Main {
         System.out.println("Digita a palavra de busca:");
         String nomeBusca = scanner.nextLine();
         boolean encontrado = false;
-        for (Pet p : pets) {
             switch (opcaoSelecionada){
                 case 1:
-                    if (p.getNome() == null) continue;
-                        pattern = Pattern.compile(nomeBusca , Pattern.CASE_INSENSITIVE);
+                    for (Pet p : pets) {
+                        if (p.getNome() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getNome());
-                    if(matcher.find()){
-                        System.out.println("Pet encontrado:");
-                        System.out.println(p);
-                        encontrado = true;
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
+                        break;
                     }
-                    break;
                 case 2:
-                    if (p.getSexo() == null) continue;
-                        pattern = Pattern.compile(nomeBusca , Pattern.CASE_INSENSITIVE);
-                        matcher = pattern.matcher(p.getSexo());
-                    if(matcher.find()){
-                        System.out.println("Pet encontrado:");
-                        System.out.println(p);
-                        encontrado = true;
+                    for(Pet p : pets) {
+                        if (p.getIdade() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+                        matcher = pattern.matcher(p.getIdade());
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
                     }
                 default:
                     System.out.println("teste");
                     break;
+
             }
 //            if (p.getNome() == null) continue;
 //            Pattern pattern = Pattern.compile(nomeBusca , Pattern.CASE_INSENSITIVE);
@@ -232,7 +236,6 @@ public class Main {
 //                encontrado = true;
 //            }
 
-        }
 
         if (!encontrado) {
             System.out.println("Nenhum pet encontrado com o nome: " + nomeBusca);
