@@ -233,6 +233,39 @@ public class Main {
                             encontrado = true;
                         }
                     }
+                case 4:
+                    for(Pet p : pets) {
+                        if (p.getPeso() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+                        matcher = pattern.matcher(p.getPeso());
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
+                    }
+                case 5:
+                    for(Pet p : pets) {
+                        if (p.getRaca() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+                        matcher = pattern.matcher(p.getRaca());
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
+                    }
+                case 6:
+                    for(Pet p : pets) {
+                        if (p.getEndere() == null) continue;
+                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+                        matcher = pattern.matcher(p.getEndere().toString());
+                        if (matcher.find()) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                        }
+                    }
                 default:
                     System.out.println("teste");
                     break;
