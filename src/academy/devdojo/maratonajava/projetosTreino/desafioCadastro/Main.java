@@ -281,11 +281,9 @@ public class Main {
                     for (Pet p : pets) {
                         if (p == null || p.getNome() == null) continue;
 
-                        // Deixa tudo em minúsculas para comparar sem diferença de maiúsculas/minúsculas
                         String nomePet = p.getNome().toLowerCase();
                         String idadePet = String.valueOf(p.getIdade()).toLowerCase();
 
-                        // Verifica se o nome contém o texto digitado e a idade também
                         boolean nomeConfere = nomePet.contains(nomeBusca.toLowerCase());
                         boolean idadeConfere = idadePet.contains(idadeBusca.toLowerCase());
 
@@ -293,7 +291,31 @@ public class Main {
                             System.out.println("Pet encontrado:");
                             System.out.println(p);
                             encontrado = true;
-                            // Se quiser ver todos, não coloque o break
+                        }
+                    }
+                case 8:
+
+
+                    System.out.print("Digite a idade do pet (ex: 2): ");
+                    idadeBusca = scanner.nextLine().trim();
+
+                    System.out.print("Digite o peso nome do pet (ex: 2kg): ");
+                    String pesoBusca = scanner.nextLine().trim();
+
+
+                    for (Pet p : pets) {
+                        if (p == null || p.getNome() == null) continue;
+
+                        String pesoPet = p.getPeso().toLowerCase();
+                        String idadePet = String.valueOf(p.getIdade()).toLowerCase();
+
+                        boolean nomeConfere = pesoPet.contains(nomeBusca.toLowerCase());
+                        boolean idadeConfere = idadePet.contains(idadeBusca.toLowerCase());
+
+                        if (nomeConfere && idadeConfere) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
                         }
                     }
 
