@@ -202,7 +202,7 @@ public class Main {
         String nomeBusca = scanner.nextLine();
 
         boolean encontrado = false;
-            switch (opcaoSelecionada){
+            switch (opcaoSelecionada) {
                 case 1:
                     for (Pet p : pets) {
                         if (p.getNome() == null) continue;
