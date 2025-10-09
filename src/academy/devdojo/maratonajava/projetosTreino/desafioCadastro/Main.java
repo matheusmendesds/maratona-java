@@ -270,6 +270,34 @@ public class Main {
                             encontrado = true;
                         }
                     }
+                case 7:
+                    System.out.print("Digite parte do nome do pet: ");
+                    nomeBusca = scanner.nextLine().trim();
+
+                    System.out.print("Digite a idade do pet (ex: 2): ");
+                    String idadeBusca = scanner.nextLine().trim();
+
+
+                    for (Pet p : pets) {
+                        if (p == null || p.getNome() == null) continue;
+
+                        // Deixa tudo em minúsculas para comparar sem diferença de maiúsculas/minúsculas
+                        String nomePet = p.getNome().toLowerCase();
+                        String idadePet = String.valueOf(p.getIdade()).toLowerCase();
+
+                        // Verifica se o nome contém o texto digitado e a idade também
+                        boolean nomeConfere = nomePet.contains(nomeBusca.toLowerCase());
+                        boolean idadeConfere = idadePet.contains(idadeBusca.toLowerCase());
+
+                        if (nomeConfere && idadeConfere) {
+                            System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            encontrado = true;
+                            // Se quiser ver todos, não coloque o break
+                        }
+                    }
+
+
                 default:
                     System.out.println("teste");
                     break;
