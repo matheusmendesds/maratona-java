@@ -294,22 +294,19 @@ public class Main {
                         }
                     }
                 case 8:
-
-
                     System.out.print("Digite a idade do pet (ex: 2): ");
                     idadeBusca = scanner.nextLine().trim();
 
                     System.out.print("Digite o peso nome do pet (ex: 2kg): ");
                     String pesoBusca = scanner.nextLine().trim();
-
-
+                    
                     for (Pet p : pets) {
                         if (p == null || p.getNome() == null) continue;
 
                         String pesoPet = p.getPeso().toLowerCase();
                         String idadePet = String.valueOf(p.getIdade()).toLowerCase();
 
-                        boolean nomeConfere = pesoPet.contains(nomeBusca.toLowerCase());
+                        boolean nomeConfere = pesoPet.contains(pesoBusca.toLowerCase());
                         boolean idadeConfere = idadePet.contains(idadeBusca.toLowerCase());
 
                         if (nomeConfere && idadeConfere) {
