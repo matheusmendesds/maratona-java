@@ -29,10 +29,11 @@ public class Main {
                 cadastroPet();
                 break;
             case 2:
+                System.out.println("Por qual dado buscar pet?");
                 buscarPet();
                 break;
             case 3:
-                System.out.println("Alterar dados");
+                alterarPet();
                 break;
             case 4:
                 System.out.println("Deletar pet");
@@ -133,6 +134,16 @@ public class Main {
 
     }
 
+    public static void alterarPet(){
+//        for(Pet p : pets){
+//            String nome1 = p.getNome();
+//            System.out.println(nome1);
+//        }
+        System.out.println("Alteração de dados do Pet");
+        System.out.println("Busque o pet desejado:");
+        buscarPet();
+    }
+
     public static void arquivoPet(int contador,String resp, String pet){
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmm'-'");
         String horaDia = LocalDateTime.now().format(format);
@@ -151,7 +162,6 @@ public class Main {
             System.out.println("Nenhum pet encontrado ainda.");
             return;
         }
-
         File[] arquivos = pasta.listFiles((dir, name) -> name.endsWith(".txt"));
         if (arquivos == null) return;
 
@@ -185,9 +195,7 @@ public class Main {
     static Pattern pattern;
     static Matcher matcher;
     public static void buscarPet() {
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Por qual dado buscar pet?");
         System.out.println("1-Nome ou sobrenome\n" +
                 "2-Sexo(Macho ou Femea)\n" +
                 "3-Idade\n" +
@@ -267,6 +275,7 @@ public class Main {
                             encontrado = true;
                         }
                     }
+                //Endereco n esta funcionando
                 case 6:
                     for(Pet p : pets) {
                         if (p.getEndere() == null) continue;
@@ -335,7 +344,7 @@ public class Main {
 
 
         if (!encontrado) {
-            System.out.println("Nenhum pet encontrado  ");
+            System.out.println("Nenhum pet encontrado");
         }
 
     }
