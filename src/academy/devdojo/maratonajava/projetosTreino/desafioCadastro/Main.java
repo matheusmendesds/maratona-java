@@ -198,10 +198,6 @@ public class Main {
                 "8-Idade e Peso\n"
         );
         int opcaoSelecionada = Integer.parseInt(scanner.nextLine());
-        if(opcaoSelecionada == 7 || opcaoSelecionada == 8){
-            System.out.println("aguarde um momento");
-            scanner.close();
-        }
         System.out.println("Digita a palavra de busca:");
         String nomeBusca = scanner.nextLine();
 
