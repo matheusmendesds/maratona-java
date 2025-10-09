@@ -198,7 +198,7 @@ public class Main {
                 "8-Idade e Peso\n"
         );
         int opcaoSelecionada = Integer.parseInt(scanner.nextLine());
-        System.out.println("Digita a palavra de busca:");
+        System.out.println("Digite a palavra de busca:");
         String nomeBusca = scanner.nextLine();
 
         boolean encontrado = false;
