@@ -142,6 +142,7 @@ public class Main {
         System.out.println("Alteração de dados do Pet");
         System.out.println("Busque o pet desejado:");
         buscarPet();
+
     }
 
     public static void arquivoPet(int contador,String resp, String pet){
@@ -219,6 +220,10 @@ public class Main {
                             matcher = pattern.matcher(p.getNome());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
+                            System.out.println(p);
+                            System.out.println("Altere o nome e sobrenome do pet:");
+                            String nomeAlt= scanner.nextLine();
+                            p.setNome(nomeAlt);
                             System.out.println(p);
                             encontrado = true;
                         }
