@@ -134,11 +134,7 @@ public class Main {
 
     }
 
-    public static void alterarPet(){
-//        for(Pet p : pets){
-//            String nome1 = p.getNome();
-//            System.out.println(nome1);
-//        }
+    public static void alterarPet() {
         System.out.println("Alteração de dados do Pet");
         System.out.println("Busque o pet desejado:");
         buscarPet();
@@ -194,6 +190,7 @@ public class Main {
 
     static Pattern pattern;
     static Matcher matcher;
+
     public static void buscarPet() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("1-Nome ou sobrenome\n" +
@@ -342,10 +339,9 @@ public class Main {
 
             }
 
-
-        if (!encontrado) {
-            System.out.println("Nenhum pet encontrado");
-        }
+            if (!encontrado) {
+                System.out.println("Nenhum pet encontrado");
+            }
 
     }
     public static void main(String[] args) throws IOException {
