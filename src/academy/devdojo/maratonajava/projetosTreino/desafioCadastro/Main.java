@@ -134,7 +134,11 @@ public class Main {
 
     }
 
-    public static void alterarPet() {
+    public static void alterarPet(){
+//        for(Pet p : pets){
+//            String nome1 = p.getNome();
+//            System.out.println(nome1);
+//        }
         System.out.println("Alteração de dados do Pet");
         System.out.println("Busque o pet desejado:");
         buscarPet();
@@ -339,9 +343,10 @@ public class Main {
 
             }
 
-            if (!encontrado) {
-                System.out.println("Nenhum pet encontrado");
-            }
+
+        if (!encontrado) {
+            System.out.println("Nenhum pet encontrado");
+        }
 
     }
     public static void main(String[] args) throws IOException {
