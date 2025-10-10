@@ -211,7 +211,7 @@ public class Main {
         boolean encontrado = false;
             switch (opcaoSelecionada) {
                 case 1 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite o nome e sobrenome de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for (Pet p : pets) {
@@ -225,7 +225,7 @@ public class Main {
                     }
                 }
                 case 2 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite o sexo de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
@@ -240,7 +240,7 @@ public class Main {
                 }
 
                 case 3 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite a idade de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
@@ -256,7 +256,7 @@ public class Main {
                 }
 
                 case 4 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite o peso de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
@@ -270,7 +270,7 @@ public class Main {
                     }
                 }
                 case 5 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite a raça de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
@@ -286,7 +286,7 @@ public class Main {
 
                 //Endereco n esta funcionando
                 case 6 -> {
-                    System.out.println("Digite a palavra de busca:");
+                    System.out.println("Digite o endereço de busca:");
                     String nomeBusca = scanner.nextLine();
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
