@@ -135,13 +135,50 @@ public class Main {
     }
 
     public static void alterarPet(){
-//        for(Pet p : pets){
-//            String nome1 = p.getNome();
-//            System.out.println(nome1);
-//        }
-        System.out.println("Alteração de dados do Pet");
-        System.out.println("Busque o pet desejado:");
-        buscarPet();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite um termo de busca (nome, idade ou raça):");
+        String termoBusca = scanner.nextLine().trim();
+
+        Pattern pattern = Pattern.compile(termoBusca, Pattern.CASE_INSENSITIVE);
+
+        boolean encontrado = false;
+
+        for (Pet p : pets) {
+            // Procurar em nome, idade e raça (caso queira todas)
+            if (p.getNome() != null && pattern.matcher(p.getNome()).find()
+                    || p.getIdade() != null && pattern.matcher(p.getIdade()).find()
+                    || p.getRaca() != null && pattern.matcher(p.getRaca()).find()) {
+
+                System.out.println("\n🐾 Pet encontrado:");
+                System.out.println(p);
+
+                System.out.println("Deseja alterar este pet? (s/n)");
+                String resp = scanner.nextLine().trim();
+
+                if (resp.equalsIgnoreCase("s")) {
+                    System.out.println("Digite o novo nome (ou deixe em branco para manter):");
+                    String novoNome = scanner.nextLine().trim();
+                    if (!novoNome.isEmpty()) p.setNome(novoNome);
+
+                    System.out.println("Digite a nova idade (ou deixe em branco para manter):");
+                    String novaIdade = scanner.nextLine().trim();
+                    if (!novaIdade.isEmpty()) p.setIdade(novaIdade);
+
+                    System.out.println("Digite a nova raça (ou deixe em branco para manter):");
+                    String novaRaca = scanner.nextLine().trim();
+                    if (!novaRaca.isEmpty()) p.setRaca(novaRaca);
+
+                    System.out.println("✅ Pet atualizado com sucesso!");
+                }
+
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Nenhum pet encontrado com o termo informado.");
+        }
 
     }
 
@@ -217,7 +254,7 @@ public class Main {
                     pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for (Pet p : pets) {
                         if (p.getNome() == null) continue;
-                            matcher = pattern.matcher(p.getNome());
+                        matcher = pattern.matcher(p.getNome());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
                             System.out.println(p);
