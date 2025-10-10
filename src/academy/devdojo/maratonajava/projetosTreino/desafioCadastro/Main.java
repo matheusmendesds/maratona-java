@@ -210,26 +210,26 @@ public class Main {
 
         boolean encontrado = false;
             switch (opcaoSelecionada) {
-                case 1:
+                case 1 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for (Pet p : pets) {
                         if (p.getNome() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
-                        matcher = pattern.matcher(p.getNome());
+                            matcher = pattern.matcher(p.getNome());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
                             System.out.println(p);
                             encontrado = true;
                         }
-                        break;
                     }
-                case 2:
+                }
+                case 2 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
                         if (p.getSexo() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getSexo().name());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
@@ -237,12 +237,15 @@ public class Main {
                             encontrado = true;
                         }
                     }
-                case 3:
+                }
+
+                case 3 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
                         if (p.getIdade() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
+
                         matcher = pattern.matcher(p.getIdade());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
@@ -250,12 +253,14 @@ public class Main {
                             encontrado = true;
                         }
                     }
-                case 4:
+                }
+
+                case 4 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
                         if (p.getPeso() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getPeso());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
@@ -263,12 +268,13 @@ public class Main {
                             encontrado = true;
                         }
                     }
-                case 5:
+                }
+                case 5 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
                         if (p.getRaca() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getRaca());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
@@ -276,13 +282,15 @@ public class Main {
                             encontrado = true;
                         }
                     }
+                }
+
                 //Endereco n esta funcionando
-                case 6:
+                case 6 -> {
+                    System.out.println("Digite a palavra de busca:");
+                    String nomeBusca = scanner.nextLine();
+                    pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                     for(Pet p : pets) {
                         if (p.getEndere() == null) continue;
-                        System.out.println("Digite a palavra de busca:");
-                        String nomeBusca = scanner.nextLine();
-                        pattern = Pattern.compile(nomeBusca, Pattern.CASE_INSENSITIVE);
                         matcher = pattern.matcher(p.getEndere().toString());
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
@@ -290,10 +298,11 @@ public class Main {
                             encontrado = true;
                         }
                     }
-                case 7:
+                }
+
+                case 7 -> {
                     System.out.print("Digite parte do nome do pet: ");
                     String nomeBusca = scanner.nextLine().trim();
-
                     System.out.print("Digite a idade do pet (ex: 2): ");
                     String idadeBusca = scanner.nextLine().trim();
 
@@ -313,9 +322,11 @@ public class Main {
                             encontrado = true;
                         }
                     }
-                case 8:
+                }
+
+                case 8 -> {
                     System.out.print("Digite a idade do pet (ex: 2): ");
-                    idadeBusca = scanner.nextLine().trim();
+                    String idadeBusca = scanner.nextLine().trim();
 
                     System.out.print("Digite o peso nome do pet (ex: 2kg): ");
                     String pesoBusca = scanner.nextLine().trim();
@@ -334,16 +345,17 @@ public class Main {
                             System.out.println(p);
                             encontrado = true;
                         }
+                        break;
                     }
+                }
 
-
-                default:
+                default -> {
                     System.out.println("teste");
-                    break;
+                }
 
             }
 
-
+        System.out.println("Nao esta chengando aqui");
         if (!encontrado) {
             System.out.println("Nenhum pet encontrado");
         }
