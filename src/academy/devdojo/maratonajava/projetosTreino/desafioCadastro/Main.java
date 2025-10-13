@@ -5,6 +5,7 @@ import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.Na
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.exceptions.PesoException;
 import academy.devdojo.maratonajava.projetosTreino.desafioCadastro.utils.Pet;
 
+import javax.swing.*;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -133,51 +134,14 @@ public class Main {
         pets.add(pet);
 
     }
-
     public static void alterarPet(){
+        File pasta = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\pets");
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Digite um termo de busca (nome, idade ou raça):");
-        String termoBusca = scanner.nextLine().trim();
-
-        Pattern pattern = Pattern.compile(termoBusca, Pattern.CASE_INSENSITIVE);
-
-        boolean encontrado = false;
-
-        for (Pet p : pets) {
-            // Procurar em nome, idade e raça (caso queira todas)
-            if (p.getNome() != null && pattern.matcher(p.getNome()).find()
-                    || p.getIdade() != null && pattern.matcher(p.getIdade()).find()
-                    || p.getRaca() != null && pattern.matcher(p.getRaca()).find()) {
-
-                System.out.println("\n🐾 Pet encontrado:");
-                System.out.println(p);
-
-                System.out.println("Deseja alterar este pet? (s/n)");
-                String resp = scanner.nextLine().trim();
-
-                if (resp.equalsIgnoreCase("s")) {
-                    System.out.println("Digite o novo nome (ou deixe em branco para manter):");
-                    String novoNome = scanner.nextLine().trim();
-                    if (!novoNome.isEmpty()) p.setNome(novoNome);
-
-                    System.out.println("Digite a nova idade (ou deixe em branco para manter):");
-                    String novaIdade = scanner.nextLine().trim();
-                    if (!novaIdade.isEmpty()) p.setIdade(novaIdade);
-
-                    System.out.println("Digite a nova raça (ou deixe em branco para manter):");
-                    String novaRaca = scanner.nextLine().trim();
-                    if (!novaRaca.isEmpty()) p.setRaca(novaRaca);
-
-                    System.out.println("✅ Pet atualizado com sucesso!");
-                }
-
-                encontrado = true;
-            }
-        }
-
-        if (!encontrado) {
-            System.out.println("Nenhum pet encontrado com o termo informado.");
+        System.out.println("Buscar: ");
+        String busca = scanner.nextLine();
+        File[] arquivos = pasta.listFiles((dir,nome) -> nome.toLowerCase().endsWith(".txt") && nome.contains(busca));
+        for (int i = 0; i < arquivos.length; i++) {
+            System.out.println((i + 1) + " - " + arquivos[i].getName());
         }
 
     }
