@@ -10,6 +10,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,7 +35,7 @@ public class Main {
                 buscarPet();
                 break;
             case 3:
-                alterarPet();
+                
                 break;
             case 4:
                 System.out.println("Deletar pet");
@@ -222,9 +223,9 @@ public class Main {
                         if (matcher.find()) {
                             System.out.println("Pet encontrado:");
                             System.out.println(p);
-                            System.out.println("Altere o nome e sobrenome do pet:");
-                            String nomeAlt= scanner.nextLine();
-                            p.setNome(nomeAlt);
+//                            System.out.println("Altere o nome e sobrenome do pet:");
+//                            String nomeAlt= scanner.nextLine();
+//                            p.setNome(nomeAlt);
                             System.out.println(p);
                             encontrado = true;
                         }
@@ -361,12 +362,13 @@ public class Main {
 
             }
 
-        System.out.println("Nao esta chengando aqui");
         if (!encontrado) {
             System.out.println("Nenhum pet encontrado");
         }
 
     }
+
+
     public static void main(String[] args) throws IOException {
         fileFormulario = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\desafioCadastro\\arquivos\\formulario.txt");
         carregarPets();
