@@ -2,7 +2,7 @@ package academy.devdojo.maratonajava.javacore.Ycolecoes.dominio;
 
 import java.util.Objects;
 
-public class Manga {
+public class Manga implements Comparable<Manga> {
     private Long id;
     private String nome;
     private double preco;
@@ -59,5 +59,27 @@ public class Manga {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public int compareTo(Manga outroManga) {
+       //negativo se o this < outroManga
+       //se this == outroManga , return 0
+       //positivo se this > outroManga
+//       if(this.id < outroManga.getId()){
+//           return -1;
+//       } else if(this.id.equals(outroManga.getId())){
+//           return 0;
+//       } else {
+//           return 1;
+//       }
+        // organizando em ordem alfabetica pelas strings
+       return this.nome.compareTo(outroManga.getNome());
+
+        //organizando pelo preco com double
+       //return Double.compare(preco, outroManga.getPreco());
+
+        //outra forma de organizar pelo id
+       //return this.id.compareTo(outroManga.getId());
     }
 }
