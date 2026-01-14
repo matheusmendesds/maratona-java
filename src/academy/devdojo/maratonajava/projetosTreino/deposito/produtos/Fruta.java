@@ -7,10 +7,14 @@ public class Fruta extends Produto {
         super(nome, preco, estoque);
     }
 
+
     @Override
     public String toString() {
-        return "Fruta{" +
+        return "Produto{" +
                 "tipo='" + tipo + '\'' +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", estoque=" + estoque +
                 '}';
     }
 

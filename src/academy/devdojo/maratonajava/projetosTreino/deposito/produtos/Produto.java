@@ -1,23 +1,14 @@
 package academy.devdojo.maratonajava.projetosTreino.deposito.produtos;
 
 public class Produto {
-    private String nome;
-    private double preco;
-    private int estoque;
+    protected String nome;
+    protected double preco;
+    protected int estoque;
 
     public Produto(String nome, double preco, int estoque) {
         this.nome = nome;
         this.preco = preco;
         this.estoque = estoque;
-    }
-
-    @Override
-    public String toString() {
-        return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", preco=" + preco +
-                ", estoque=" + estoque +
-                '}';
     }
 
     public String getNome() {
