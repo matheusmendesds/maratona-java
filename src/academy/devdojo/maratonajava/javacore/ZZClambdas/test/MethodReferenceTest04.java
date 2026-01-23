@@ -20,7 +20,9 @@ public class MethodReferenceTest04 {
         BiFunction<String, Integer, Anime> animeBiFunction = (title,episodes) -> new Anime(title,episodes);
         BiFunction<String, Integer, Anime> animeBiFunction2 = Anime::new;
         System.out.println(animeBiFunction2.apply("Super Campeoes",34));
-        System.out.println(animeBiFunction2.apply("Dragon Ball Z",34));
+        System.out.println(animeBiFunction2.apply("Dragon Ball Z",188));
+
+        System.out.println(animeList);
 
     }
 
