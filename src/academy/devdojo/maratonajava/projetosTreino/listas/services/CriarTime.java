@@ -22,7 +22,13 @@ public class CriarTime {
      }
 
      public void saveTeam(String nome ,String pais) {
-         File file = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\listas\\data\\times\\"+nome+".txt");
+         File pasta = new File("C:\\Users\\masin\\OneDrive\\Documentos\\ESTUDOS\\java\\maratona-java\\src\\academy\\devdojo\\maratonajava\\projetosTreino\\listas\\data\\times");
+         if (!pasta.exists()) {
+             pasta.mkdirs();
+         }
+
+
+         File file = new File(pasta,nome +".txt");
          try(FileWriter fw = new FileWriter(file,true);
              BufferedWriter bw = new BufferedWriter(fw)) {
              bw.write("Nome:" + nome +"\n");
@@ -32,3 +38,4 @@ public class CriarTime {
          }
      }
 }
+ 
