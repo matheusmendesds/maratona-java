@@ -22,6 +22,9 @@ public class Person {
                 '}';
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
     public static final class PersonBuilder {
         private String firstName;
@@ -59,5 +62,7 @@ public class Person {
         public Person build() {
             return new Person(firstName, lastName, username, email);
         }
+
+
     }
 }
