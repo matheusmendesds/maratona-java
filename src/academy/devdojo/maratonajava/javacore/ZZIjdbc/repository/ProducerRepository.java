@@ -22,6 +22,39 @@ public class ProducerRepository {
         }
     }
 
+    public static void saveTransaction(List<Producer> producers) {
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            conn.setAutoCommit(false);
+            preparedStatementSaveTransaction(conn, producers);
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException e) {
+            log.error("Error while trying to save producer '{}'", producers, e);
+
+        }
+    }
+
+    private static void preparedStatementSaveTransaction(Connection conn, List<Producer> producers) throws SQLException {
+        String sql = "INSERT INTO `anime_store`.`producer` (`name`) VALUES (?);";
+        boolean shouldRollback = false;
+        for (Producer p : producers) {
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                log.info("Saving producer '{}'", p.getName());
+                ps.setString(1, p.getName());
+                if (p.getName().equals("White fox")) throw new SQLException("Can't save white fox");
+                ps.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                shouldRollback = true;
+            }
+        }
+        if (shouldRollback) {
+            log.warn("Transaction is going be rollback");
+            conn.rollback();
+        }
+    }
+
+
     public static void delete(int id) {
         String sql = "DELETE FROM `anime_store`.`producer` WHERE (`id` = '%d');".formatted(id);
         try (Connection conn = ConnectionFactory.getConnection();
@@ -49,7 +82,7 @@ public class ProducerRepository {
 
     public static void updatePreparedStatement(Producer producer) {
         try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement ps = preparedStatementUpdate(conn,producer)) {
+             PreparedStatement ps = preparedStatementUpdate(conn, producer)) {
             int rowsAffected = ps.executeUpdate();
             log.info("Updated producer '{}', rows affected '{}'", producer.getId(), rowsAffected);
         } catch (SQLException e) {
@@ -57,11 +90,12 @@ public class ProducerRepository {
 
         }
     }
+
     private static PreparedStatement preparedStatementUpdate(Connection conn, Producer producer) throws SQLException {
         String sql = "UPDATE `anime_store`.`producer` SET `name` = ? WHERE (`id` = ?);";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,producer.getName());
-        ps.setInt(2,producer.getId());
+        ps.setString(1, producer.getName());
+        ps.setInt(2, producer.getId());
         return ps;
     }
 
@@ -94,7 +128,7 @@ public class ProducerRepository {
         log.info("Finding Producer by Name");
         List<Producer> producers = new ArrayList<>();
         try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement ps = preparedStatementFindByName(conn,name);
+             PreparedStatement ps = preparedStatementFindByName(conn, name);
              ResultSet rs = ps.executeQuery();) {
 
             while (rs.next()) {
@@ -107,11 +141,12 @@ public class ProducerRepository {
         }
         return producers;
     }
+
     public static List<Producer> findByNameCallabeStatement(String name) {
         log.info("Finding Producer by Name");
         List<Producer> producers = new ArrayList<>();
         try (Connection conn = ConnectionFactory.getConnection();
-             PreparedStatement ps = callabeStatementFindByName(conn,name);
+             PreparedStatement ps = callabeStatementFindByName(conn, name);
              ResultSet rs = ps.executeQuery();) {
 
             while (rs.next()) {
@@ -128,13 +163,14 @@ public class ProducerRepository {
     private static PreparedStatement preparedStatementFindByName(Connection conn, String name) throws SQLException {
         String sql = "select * from anime_store.producer where name like ?;";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,String.format("%%%s%%",name));
+        ps.setString(1, String.format("%%%s%%", name));
         return ps;
     }
+
     private static CallableStatement callabeStatementFindByName(Connection conn, String name) throws SQLException {
         String sql = "CALL `anime_store`.`sp_get_producer_by_name`(?);";
         CallableStatement cs = conn.prepareCall(sql);
-        cs.setString(1,String.format("%%%s%%",name));
+        cs.setString(1, String.format("%%%s%%", name));
         return cs;
     }
 
